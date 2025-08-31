@@ -1,4 +1,4 @@
-import React from "react";
+import "../App.css"
 import { Drawer, List, ListItem, ListItemText } from "@mui/material";
 
 const Sidebar = ({ open, toggleSidebar }) => {
@@ -7,17 +7,17 @@ const Sidebar = ({ open, toggleSidebar }) => {
       variant="temporary"
       open={open}
       onClose={toggleSidebar}
-      sx={{ "& .MuiDrawer-paper": { width: 240 } }}
+      sx={{ "& .MuiDrawer-paper": { width: 200 } }}
     >
-      <List>
+      <List sx={{marginTop:"3rem"}}>
         <ListItem button>
-          <ListItemText primary="Dashboard" />
+          <ListItemText primary="Dashboard" className="sidebar-cursor"/>
         </ListItem>
         <ListItem button>
-          <ListItemText primary="Users" />
+          <ListItemText primary="Users" className="sidebar-cursor"/>
         </ListItem>
         <ListItem button>
-          <ListItemText primary="Settings" />
+          <ListItemText primary="Settings"  className="sidebar-cursor"/>
         </ListItem>
       </List>
     </Drawer>
