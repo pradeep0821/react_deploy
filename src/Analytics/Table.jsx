@@ -21,6 +21,7 @@ const AnalaticalTable = () => {
       const response = await res.json();
       const products = response.products.slice(0, 5);
       setData(products);
+
       let filterOutColumn = Object.keys(products[0]);
       setColumns(
         filterOutColumn.filter(
@@ -37,30 +38,62 @@ const AnalaticalTable = () => {
   }
 
   return (
-    <div>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-          <TableHead>
-            <TableRow>
-              {columns.map((col) => (
-                <TableCell key={col} sx={{fontWeight:"bold"}}>{col.toUpperCase()}</TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {data.map((item) => (
-              <TableRow key={item.id}>
-                <TableCell>{item.title}</TableCell>
-                <TableCell>{item.price}</TableCell>
-                <TableCell>{item.brand}</TableCell>
-
-                <TableCell>{item.warrantyInformation}</TableCell>
-              </TableRow>
+    <TableContainer
+      component={Paper}
+      sx={{
+        width: "100%",
+        overflowX: "auto", 
+      }}
+    >
+      <Table
+        sx={{ minWidth: 650 }}
+        size="small"
+        aria-label="responsive table"
+      >
+        <TableHead>
+          <TableRow>
+            {columns.map((col) => (
+              <TableCell
+                key={col}
+                sx={{
+                  fontWeight: "bold",
+                  whiteSpace: "nowrap",
+                  fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1rem" },
+                }}
+              >
+                {col.toUpperCase()}
+              </TableCell>
             ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </div>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map((item) => (
+            <TableRow key={item.id}>
+              <TableCell
+                sx={{ fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1rem" } }}
+              >
+                {item.title}
+              </TableCell>
+              <TableCell
+                sx={{ fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1rem" } }}
+              >
+                {item.price}
+              </TableCell>
+              <TableCell
+                sx={{ fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1rem" } }}
+              >
+                {item.brand}
+              </TableCell>
+              <TableCell
+                sx={{ fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1rem" } }}
+              >
+                {item.warrantyInformation || "N/A"}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };
 
