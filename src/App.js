@@ -16,6 +16,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React (deployed application)
+          Pradeep Joshi ki application hai bhai
         </a>
       </header>
     </div>
