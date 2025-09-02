@@ -42,11 +42,14 @@ const AnalaticalTable = () => {
       component={Paper}
       sx={{
         width: "100%",
-        overflowX: "auto", 
+        overflowX: "hidden", // 🔹 Prevent horizontal scroll
       }}
     >
       <Table
-        sx={{ minWidth: 650 }}
+        sx={{
+          width: "100%",
+          tableLayout: "auto", // 🔹 Auto-adjust column widths
+        }}
         size="small"
         aria-label="responsive table"
       >
@@ -57,7 +60,8 @@ const AnalaticalTable = () => {
                 key={col}
                 sx={{
                   fontWeight: "bold",
-                  whiteSpace: "nowrap",
+                  whiteSpace: "normal", // 🔹 Allow wrapping
+                  wordWrap: "break-word", // 🔹 Break long words
                   fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1rem" },
                 }}
               >
@@ -70,22 +74,38 @@ const AnalaticalTable = () => {
           {data.map((item) => (
             <TableRow key={item.id}>
               <TableCell
-                sx={{ fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1rem" } }}
+                sx={{
+                  whiteSpace: "normal",
+                  wordWrap: "break-word",
+                  fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1rem" },
+                }}
               >
                 {item.title}
               </TableCell>
               <TableCell
-                sx={{ fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1rem" } }}
+                sx={{
+                  whiteSpace: "normal",
+                  wordWrap: "break-word",
+                  fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1rem" },
+                }}
               >
                 {item.price}
               </TableCell>
               <TableCell
-                sx={{ fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1rem" } }}
+                sx={{
+                  whiteSpace: "normal",
+                  wordWrap: "break-word",
+                  fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1rem" },
+                }}
               >
                 {item.brand}
               </TableCell>
               <TableCell
-                sx={{ fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1rem" } }}
+                sx={{
+                  whiteSpace: "normal",
+                  wordWrap: "break-word",
+                  fontSize: { xs: "0.7rem", sm: "0.8rem", md: "1rem" },
+                }}
               >
                 {item.warrantyInformation || "N/A"}
               </TableCell>
