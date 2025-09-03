@@ -1,12 +1,10 @@
-import Analytics from "./Analytics";
-import Layout from "./components/Layout";
+import ButtonAppBar from "./components/appbar";
 
-function App() {
+function App(){
   return (
-    <Layout>
-      <Analytics />
-    </Layout>
-  );
+    <>
+    <ButtonAppBar />
+    </>
+  )
 }
-
 export default App;
